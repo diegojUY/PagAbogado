@@ -1,0 +1,150 @@
+{% extends "base.html" %}
+
+{% block title %}Inicio - Mi Despacho de Abogados{% endblock %}
+
+{% block content %}
+    <!-- HERO SECTION -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <h1>Asesoría Legal Profesional</h1>
+            <p>Soluciones jurídicas integrales para proteger tus derechos e intereses</p>
+            <div>
+                <a href="#contacto" class="btn btn-primary">Agendar Consulta</a>
+                <a href="#servicios" class="btn btn-secondary" style="margin-left: 1rem;">Conocer Servicios</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICIOS SECTION -->
+    <section id="servicios">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestros Servicios</h2>
+                <p>Experiencia y profesionalismo en cada área del derecho</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Derecho Corporativo</h3>
+                    <p>Asesoramiento para empresas en constitución, fusiones, adquisiciones y gobernanza corporativa con enfoque estratégico.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Litigio Comercial</h3>
+                    <p>Representación integral en conflictos mercantiles, incluyendo arbitraje y mediación para soluciones eficientes.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Derecho Laboral</h3>
+                    <p>Asesoría en relaciones laborales, despidos, contratación y cumplimiento normativo especializado.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Propiedad Intelectual</h3>
+                    <p>Protección de marcas, patentes, derechos de autor y diseños con estrategia integral de IP.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Derecho Fiscal</h3>
+                    <p>Optimización fiscal, planificación tributaria y representación ante administraciones públicas.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Derecho Inmobiliario</h3>
+                    <p>Asesoría en compraventa, arrendamiento y transacciones inmobiliarias complejas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EQUIPO SECTION -->
+    <section id="equipo">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestro Equipo</h2>
+                <p>Profesionales altamente capacitados y comprometidos con la excelencia</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-card-image"></div>
+                    <h3>María García</h3>
+                    <div class="specialty">Socia Fundadora - Derecho Corporativo</div>
+                    <p>Más de 20 años de experiencia en derecho empresarial. Especialista en M&A y gobernanza corporativa.</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-card-image"></div>
+                    <h3>Juan Martínez</h3>
+                    <div class="specialty">Socio - Litigio Comercial</div>
+                    <p>Experto en resolución de controversias y arbitraje internacional con track record excepcional.</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-card-image"></div>
+                    <h3>Elena Rodríguez</h3>
+                    <div class="specialty">Abogada Senior - Derecho Laboral</div>
+                    <p>Especialista en relaciones laborales y derecho de la competencia con enfoque preventivo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO SECTION -->
+    <section id="contacto">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contacto</h2>
+                <p>Estamos aquí para escucharte y ayudarte con tus necesidades legales</p>
+            </div>
+            <div style="max-width: 600px; margin: 3rem auto;">
+                <form method="POST" action="#" style="display: grid; gap: 1.5rem;">
+                    {% csrf_token %}
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                        <div class="form-group">
+                            <label for="nombre">Nombre Completo</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono">Teléfono</label>
+                            <input type="phone" id="telefono" name="telefono" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="asunto">Asunto</label>
+                        <select id="asunto" name="asunto" required>
+                            <option value="">Selecciona un área</option>
+                            <option value="corporativo">Derecho Corporativo</option>
+                            <option value="litigio">Litigio Comercial</option>
+                            <option value="laboral">Derecho Laboral</option>
+                            <option value="ip">Propiedad Intelectual</option>
+                            <option value="fiscal">Derecho Fiscal</option>
+                            <option value="inmobiliario">Derecho Inmobiliario</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea id="mensaje" name="mensaje" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%; cursor: pointer;">Enviar Consulta</button>
+                </form>
+            </div>
+
+            <div style="margin-top: 4rem; text-align: center; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
+                <div>
+                    <h4 style="margin-bottom: 0.5rem;">Teléfono</h4>
+                    <p style="color: var(--secondary-color); font-weight: 500; font-size: 1.1rem;">+34 91 234 5678</p>
+                </div>
+                <div>
+                    <h4 style="margin-bottom: 0.5rem;">Email</h4>
+                    <p style="color: var(--secondary-color); font-weight: 500; font-size: 1.1rem;">info@legal.com</p>
+                </div>
+                <div>
+                    <h4 style="margin-bottom: 0.5rem;">Dirección</h4>
+                    <p style="color: var(--secondary-color); font-weight: 500; font-size: 1.1rem;">Calle Principal, 123 - Madrid</p>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
